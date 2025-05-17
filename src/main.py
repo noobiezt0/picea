@@ -1,3 +1,5 @@
+from tkinter import PhotoImage
+
 from customtkinter import *
 from picea import *
 import sys
@@ -9,40 +11,41 @@ class App(CTk):
     def __init__(self):
         super().__init__()
         self.title('Picea Notepad')
-        self.iconbitmap('../res/icon.ico')
+        if sys.platform.startswith('win'):
+            self.iconbitmap('../res/icon.ico')
+        else:
+            self.iconphoto(False, PhotoImage(file='../res/icon.png'))
         self.geometry('800x600')
+
+        self.menubar = Menubar(self, fg_color=('white', '#000000'))
+        self.menubar.pack(side='top', anchor='nw', fill='x')
+
+        self.menubar.add_cascade('File', ['New', 'Open', 'Save', '***', 'Exit'])
+        self.menubar.add_cascade('Edit', ['Undo', '***', 'Settings'])
+        self.menubar.add_cascade('Help', ['About'])
 
         self.tabview = CTkTabview(self, anchor='nw', fg_color=('#c0c0c0', '#060606'))
         self.tabview.pack(side='bottom', fill='both', expand=True)
 
         self.tab_count = 0
         self.tabl = dict()
-        self.welcome_tab()
+        self.welcome_page()
 
-        self.menubar = Menubar(self, fg_color=('white', '#000000'))
-        self.menubar.pack(side='top', anchor='nw', fill='x')
-
-        self.menubar.add_cascade('File', ['New', 'Open', 'Save', '***', 'Exit'])
-        self.menubar.configure()
-        self.menubar.add_cascade('Edit', ['Undo', '***', 'Settings'])
-        self.menubar.add_cascade('Help', ['About'])
-
+        self.bind('<Control-N>', self.new_tab)
         self.bind('<Control-n>', self.new_tab)
 
-    def welcome_tab(self):
+    def welcome_page(self):
         self.tabview.add('Welcome')
-        master = self.tabview.tab('Welcome')
-        widgets = list()
-        widgets.append(CTkLabel(master, text='Start', font=CTkFont(size=24)))
-        widgets.append(CTkButton(master, text='New', anchor='w'))
-        widgets.append(CTkButton(master, text='Open', anchor='w'))
-        widgets.append(CTkLabel(master, text='Recent', font=CTkFont(size=24)))
-        widgets.append(CTkButton(master, anchor='w'))
-        widgets.append(CTkButton(master, anchor='w'))
-        widgets.append(CTkButton(master, anchor='w'))
-        for widget in widgets:
-            widget.configure(width=0)
-            widget.pack(anchor='nw', padx=12, pady=3)
+        welcome_page = WelcomePage(self.tabview.tab('Welcome'))
+        welcome_page.add(CTkLabel(welcome_page, text='Start', font=CTkFont(size=24)))
+        welcome_page.add(CTkButton(welcome_page, text='New', anchor='w'))
+        welcome_page.add(CTkButton(welcome_page, text='Open', anchor='w'))
+        welcome_page.add(CTkLabel(welcome_page, text='Recent', font=CTkFont(size=24)))
+        welcome_page.add(CTkButton(welcome_page, anchor='w'))
+        welcome_page.add(CTkButton(welcome_page, anchor='w'))
+        welcome_page.add(CTkButton(welcome_page, anchor='w'))
+        welcome_page.pack_all(anchor='nw', pady=3)
+        welcome_page.pack(fill='both', expand=True, padx=24, pady=12)
 
     def new_tab(self, event, *args):
         if 'name' in args:

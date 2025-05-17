@@ -113,7 +113,7 @@
     "fg_color": ["#c0c0c0", "#060606"],
     "selected_color": ["#f0f0f0", "#363636"],
     "selected_hover_color": ["white", "#484848"],
-    "unselected_color": ["#c0c0c0", "#121212"],
+    "unselected_color": ["#c0c0c0", "#060606"],
     "unselected_hover_color": ["#e0e0e0", "#242424"],
     "text_color": ["#121212", "#e0e0e0"],
     "text_color_disabled": ["#363636", "969696"]

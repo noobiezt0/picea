@@ -27,4 +27,4 @@ Made with [Python](https://www.python.org/) and [CustomTkinter](https://customtk
 
 ### Manual Installation
 
-If you don't have any of these, then just download a .zip acrhive directly from GitHub.
+If you don't have any of these, then just download a zip acrhive directly from GitHub.

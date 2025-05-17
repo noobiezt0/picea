@@ -1,5 +1,19 @@
-from customtkinter import CTkFrame, CTkButton, CTkTextbox, CTkScrollbar, CTkLabel
+from customtkinter import CTkFrame, CTkButton, CTkTextbox, CTkScrollbar
 from customtkinter.windows.widgets.core_widget_classes import DropdownMenu
+
+class WelcomePage(CTkFrame):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._widgets = list()
+
+    def add(self, widget):
+        self._widgets.append(widget)
+
+    def pack_all(self, **kwargs):
+        for widget in self._widgets:
+            if isinstance(widget, CTkButton):
+                widget.configure(anchor='w')
+            widget.pack(**kwargs)
 
 class Textbox(CTkFrame):
     def __init__(self, *args, **kwargs):

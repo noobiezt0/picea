@@ -1,5 +1,6 @@
 from customtkinter import *
 from picea import *
+import sys
 
 set_default_color_theme('../res/theme/default.json')
 set_appearance_mode('system')
@@ -11,12 +12,12 @@ class App(CTk):
         self.iconbitmap('../res/icon.ico')
         self.geometry('800x600')
 
-        self.tabview = CTkTabview(self, anchor='nw', fg_color=('#c0c0c0', '#000000'))
+        self.tabview = CTkTabview(self, anchor='nw', fg_color=('#c0c0c0', '#060606'))
         self.tabview.pack(side='bottom', fill='both', expand=True)
 
-        self.tabview.add('New')
-        self.textbox = Textbox(self.tabview.tab('New'), fg_color=('#c0c0c0', '#000000'))
-        self.textbox.pack(fill='both', expand=True)
+        self.tab_count = 0
+        self.tabl = dict()
+        self.welcome_tab()
 
         self.menubar = Menubar(self, fg_color=('white', '#000000'))
         self.menubar.pack(side='top', anchor='nw', fill='x')
@@ -25,6 +26,37 @@ class App(CTk):
         self.menubar.configure()
         self.menubar.add_cascade('Edit', ['Undo', '***', 'Settings'])
         self.menubar.add_cascade('Help', ['About'])
+
+        self.bind('<Control-n>', self.new_tab)
+
+    def welcome_tab(self):
+        self.tabview.add('Welcome')
+        master = self.tabview.tab('Welcome')
+        widgets = list()
+        widgets.append(CTkLabel(master, text='Start', font=CTkFont(size=24)))
+        widgets.append(CTkButton(master, text='New', anchor='w'))
+        widgets.append(CTkButton(master, text='Open', anchor='w'))
+        widgets.append(CTkLabel(master, text='Recent', font=CTkFont(size=24)))
+        widgets.append(CTkButton(master, anchor='w'))
+        widgets.append(CTkButton(master, anchor='w'))
+        widgets.append(CTkButton(master, anchor='w'))
+        for widget in widgets:
+            widget.configure(width=0)
+            widget.pack(anchor='nw', padx=12, pady=3)
+
+    def new_tab(self, event, *args):
+        if 'name' in args:
+            name = args[2]
+        else:
+            self.tab_count += 1
+            name = f'New-{self.tab_count}'
+        self.tabview.add(name)
+        self.tabl[name] = Textbox(self.tabview.tab(name), fg_color=('#c0c0c0', '#060606'))
+        if sys.platform.startswith('win'):
+            self.tabl[name].textbox.configure(font=CTkFont(family='Cascadia Mono', size=14))
+            self.tabl[name].linenums.configure(font=CTkFont(family='Cascadia Mono', size=14))
+        self.tabl[name].pack(fill='both', expand=True)
+        self.tabview.set(name)
 
 if __name__ == '__main__':
     App().mainloop()

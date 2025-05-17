@@ -6,14 +6,12 @@ An open-source crossplatform text editor for all your needs!
 
 Made with [Python](https://www.python.org/) and [CustomTkinter](https://customtkinter.tomschimansky.com/).
 
-***
 
 ## Dependencies
 
 * Python with built-in Tkinter
 * CustomTkinter
 
-***
 
 ## Installation
 

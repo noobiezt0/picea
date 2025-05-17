@@ -6,14 +6,12 @@
 
 Сделано с помощью [Python](https://www.python.org/) и [CustomTkinter](https://customtkinter.tomschimansky.com/).
 
-***
 
 ## Зависимости
 
 * Python со встроенным Tkinter
 * CustomTkinter
 
-***
 
 ## Установка
 

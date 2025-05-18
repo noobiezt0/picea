@@ -23,12 +23,13 @@ class App(CTk):
         self.menubar.add_cascade('File')
         self.menubar.add_cascade('Edit')
         self.menubar.add_cascade('Help')
+        self.menubar.pack_cascades(side='left', ipadx=8)
 
         self.menubar.add_command('File', label='New', command=self.new_tab)
         self.menubar.add_separator('File')
-        self.menubar.add_command('File', label='Exit')
+        self.menubar.add_command('File', label='Exit', command=exit)
 
-        self.tabview = CTkTabview(self, anchor='nw', fg_color=('#c0c0c0', '#060606'))
+        self.tabview = CTkTabview(self, anchor='nw', fg_color=('#e0e0e0', '#060606'))
         self.tabview.pack(side='bottom', fill='both', expand=True)
 
         self.tab_count = dict()
@@ -40,8 +41,8 @@ class App(CTk):
 
     def welcome_page(self):
         self.tabview.add('Welcome')
-        welcome_page = WelcomePage(self.tabview.tab('Welcome'), fg_color=('#e0e0e0', '#060606'))
-        welcome_page.add(CTkLabel(welcome_page, text='Picea Notepad\n', font=CTkFont(size=36)))
+        welcome_page = WelcomePage(self.tabview.tab('Welcome'))
+        welcome_page.add(CTkLabel(welcome_page, text='\nPicea Notepad\n', font=CTkFont(size=36)))
         welcome_page.add(CTkLabel(welcome_page, text='Start', font=CTkFont(size=24)))
         welcome_page.add(CTkButton(welcome_page, text='New', anchor='w', command=self.new_tab))
         welcome_page.add(CTkButton(welcome_page, text='Open', anchor='w'))
@@ -49,8 +50,9 @@ class App(CTk):
         welcome_page.add(CTkButton(welcome_page, anchor='w'))
         welcome_page.add(CTkButton(welcome_page, anchor='w'))
         welcome_page.add(CTkButton(welcome_page, anchor='w'))
-        welcome_page.pack_all(anchor='nw', pady=3)
-        welcome_page.pack(fill='both', expand=True, padx=24, pady=12)
+        welcome_page.cfg_buttons(anchor='w', fg_color='transparent', hover_color=("#e0e0e0", "#242424"))
+        welcome_page.pack_all(anchor='nw', pady=3, padx=24)
+        welcome_page.pack(fill='both', expand=True)
 
     def new_tab(self, event=None, **kwargs):
         if 'name' in kwargs:
@@ -64,7 +66,7 @@ class App(CTk):
             self.tab_count[name] += 1
             name = f'{name} ({self.tab_count[name]})'
             self.tabview.add(name)
-        self.tabl[name] = Textbox(self.tabview.tab(name), fg_color=('#c0c0c0', '#060606'))
+        self.tabl[name] = Textbox(self.tabview.tab(name), fg_color=('#e0e0e0', '#060606'))
         if sys.platform.startswith('win'):
             self.tabl[name].textbox.configure(font=CTkFont(family='Cascadia Mono', size=14))
             self.tabl[name].linenums.configure(font=CTkFont(family='Cascadia Mono', size=14))

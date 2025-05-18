@@ -20,14 +20,18 @@ class App(CTk):
         self.menubar = Menubar(self, fg_color=('white', '#000000'))
         self.menubar.pack(side='top', anchor='nw', fill='x')
 
-        self.menubar.add_cascade('File', ['New', 'Open', 'Save', '***', 'Exit'])
-        self.menubar.add_cascade('Edit', ['Undo', '***', 'Settings'])
-        self.menubar.add_cascade('Help', ['About'])
+        self.menubar.add_cascade('File')
+        self.menubar.add_cascade('Edit')
+        self.menubar.add_cascade('Help')
+
+        self.menubar.add_command('File', label='New', command=self.new_tab)
+        self.menubar.add_separator('File')
+        self.menubar.add_command('File', label='Exit')
 
         self.tabview = CTkTabview(self, anchor='nw', fg_color=('#c0c0c0', '#060606'))
         self.tabview.pack(side='bottom', fill='both', expand=True)
 
-        self.tab_count = 0
+        self.tab_count = dict()
         self.tabl = dict()
         self.welcome_page()
 
@@ -36,9 +40,10 @@ class App(CTk):
 
     def welcome_page(self):
         self.tabview.add('Welcome')
-        welcome_page = WelcomePage(self.tabview.tab('Welcome'))
+        welcome_page = WelcomePage(self.tabview.tab('Welcome'), fg_color=('#e0e0e0', '#060606'))
+        welcome_page.add(CTkLabel(welcome_page, text='Picea Notepad\n', font=CTkFont(size=36)))
         welcome_page.add(CTkLabel(welcome_page, text='Start', font=CTkFont(size=24)))
-        welcome_page.add(CTkButton(welcome_page, text='New', anchor='w'))
+        welcome_page.add(CTkButton(welcome_page, text='New', anchor='w', command=self.new_tab))
         welcome_page.add(CTkButton(welcome_page, text='Open', anchor='w'))
         welcome_page.add(CTkLabel(welcome_page, text='Recent', font=CTkFont(size=24)))
         welcome_page.add(CTkButton(welcome_page, anchor='w'))
@@ -47,13 +52,18 @@ class App(CTk):
         welcome_page.pack_all(anchor='nw', pady=3)
         welcome_page.pack(fill='both', expand=True, padx=24, pady=12)
 
-    def new_tab(self, event, *args):
-        if 'name' in args:
-            name = args[2]
+    def new_tab(self, event=None, **kwargs):
+        if 'name' in kwargs:
+            name = kwargs['name']
         else:
-            self.tab_count += 1
-            name = f'New-{self.tab_count}'
-        self.tabview.add(name)
+            name = 'New'
+        try:
+            self.tabview.add(name)
+            self.tab_count[name] = 0
+        except ValueError:
+            self.tab_count[name] += 1
+            name = f'{name} ({self.tab_count[name]})'
+            self.tabview.add(name)
         self.tabl[name] = Textbox(self.tabview.tab(name), fg_color=('#c0c0c0', '#060606'))
         if sys.platform.startswith('win'):
             self.tabl[name].textbox.configure(font=CTkFont(family='Cascadia Mono', size=14))

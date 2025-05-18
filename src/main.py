@@ -32,7 +32,6 @@ class App(CTk):
         self.tabview = CTkTabview(self, anchor='nw', fg_color=('#e0e0e0', '#060606'))
         self.tabview.pack(side='bottom', fill='both', expand=True)
 
-        self.tab_count = dict()
         self.tabl = dict()
         self.welcome_page()
 
@@ -61,16 +60,17 @@ class App(CTk):
             name = 'New'
         try:
             self.tabview.add(name)
-            self.tab_count[name] = 0
+            self.tabl[name] = dict()
+            self.tabl[name]['count'] = 0
         except ValueError:
-            self.tab_count[name] += 1
-            name = f'{name} ({self.tab_count[name]})'
+            self.tabl[name]['count'] += 1
+            name = f'{name} ({self.tabl[name]['count']})'
             self.tabview.add(name)
-        self.tabl[name] = Textbox(self.tabview.tab(name), fg_color=('#e0e0e0', '#060606'))
+        self.tabl[name]['content'] = Textbox(self.tabview.tab(name), fg_color=('#e0e0e0', '#060606'))
         if sys.platform.startswith('win'):
-            self.tabl[name].textbox.configure(font=CTkFont(family='Cascadia Mono', size=14))
-            self.tabl[name].linenums.configure(font=CTkFont(family='Cascadia Mono', size=14))
-        self.tabl[name].pack(fill='both', expand=True)
+            self.tabl[name]['content'].textbox.configure(font=CTkFont(family='Cascadia Mono', size=14))
+            self.tabl[name]['content'].linenums.configure(font=CTkFont(family='Cascadia Mono', size=14))
+        self.tabl[name]['content'].pack(fill='both', expand=True)
         self.tabview.set(name)
 
 if __name__ == '__main__':

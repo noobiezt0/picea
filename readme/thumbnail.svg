@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="1.7923962"
-     inkscape:cx="168.21058"
-     inkscape:cy="44.911946"
+     inkscape:zoom="10.139324"
+     inkscape:cx="229.25591"
+     inkscape:cy="43.247459"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -43,19 +43,19 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:8.46667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#37c837;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.25;paint-order:stroke fill markers"
-       x="-0.58291036"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#37c837;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.25;paint-order:stroke fill markers"
+       x="-0.63509989"
        y="11.267321"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:8.46667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Heavy';fill:#37c837;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:0.25;paint-order:stroke fill markers"
-         x="-0.58291036"
-         y="11.267321">Picea Notepad</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold';fill:#37c837;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:0.25;paint-order:stroke fill markers"
+         x="-0.63509989"
+         y="11.267321">Picea Notepad </tspan></text>
     <g
        id="g1"
        style="display:inline"
-       transform="matrix(0.35277779,0,0,0.35277778,61.833333,2.3333332)">
+       transform="matrix(0.26458334,0,0,0.26458333,59,3.1249999)">
       <rect
          style="display:inline;fill:#a05a2c;stroke:none;stroke-width:3.92779;stroke-linecap:round;stroke-linejoin:round"
          id="rect3"

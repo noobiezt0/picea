@@ -1,4 +1,4 @@
-# Picea Notepad
+![Picea Notepad](./thumbnail.svg)
 
 [English](../README.md) | [Русский](./ru.md)
 

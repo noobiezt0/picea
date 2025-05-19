@@ -1,10 +1,13 @@
-# Picea Notepad
+![Picea Notepad](readme/thumbnail.svg)
 
 [English](./README.md) | [Русский](./readme/ru.md)
 
 An open-source crossplatform text editor for all your needs!
 
-Made with [Python](https://www.python.org/) and [CustomTkinter](https://customtkinter.tomschimansky.com/).
+Made with
+[Python](https://www.python.org/)
+and
+[CustomTkinter](https://customtkinter.tomschimansky.com/).
 
 
 ## Dependencies

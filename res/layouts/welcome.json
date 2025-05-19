@@ -1,0 +1,69 @@
+{
+  "Label-Title": {
+    "text": "Picea Notepad ",
+    "text_color": "#37c837",
+    "image": {
+      "light_image": {
+        "fp": "../res/icon/icon.png"
+      },
+      "dark_image": {
+        "fp": "../res/icon/icon.png"
+      },
+      "size": [32, 32]
+    },
+    "compound": "right",
+    "font": {
+      "size": 36,
+      "weight": "bold"
+    },
+    "pack": {
+      "anchor": "nw",
+      "padx": 24,
+      "pady": [32, 24]
+    }
+  },
+  "Label-Start": {
+    "text": "Start",
+    "font": {
+      "size": 24
+    },
+    "pack": {
+      "anchor": "nw",
+      "padx": 24,
+      "pady": 12
+    }
+  },
+  "Button-New": {
+    "text": "New",
+    "anchor": "w",
+    "fg_color": "transparent",
+    "hover_color": ["white", "#242424"],
+    "pack": {
+      "anchor": "nw",
+      "padx": 24,
+      "pady": [3, 0]
+    }
+  },
+  "Button-Open": {
+    "text": "Open",
+    "anchor": "w",
+    "fg_color": "transparent",
+    "hover_color": ["white", "#242424"],
+    "pack": {
+      "anchor": "nw",
+      "padx": 24,
+      "pady": [3, 0]
+    }
+  },
+  "Label-Recent": {
+    "text": "Recent",
+    "font": {
+      "size": 24
+    },
+    "pack": {
+      "anchor": "nw",
+      "padx": 24,
+      "pady": 12
+    }
+  }
+}

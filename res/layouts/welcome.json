@@ -36,8 +36,7 @@
   "Button-New": {
     "text": "New",
     "anchor": "w",
-    "fg_color": "transparent",
-    "hover_color": ["white", "#242424"],
+    "hover_color": ["#e0e0e0", "#242424"],
     "pack": {
       "anchor": "nw",
       "padx": 24,
@@ -47,8 +46,7 @@
   "Button-Open": {
     "text": "Open",
     "anchor": "w",
-    "fg_color": "transparent",
-    "hover_color": ["white", "#242424"],
+    "hover_color": ["#e0e0e0", "#242424"],
     "pack": {
       "anchor": "nw",
       "padx": 24,

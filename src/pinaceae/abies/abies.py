@@ -60,7 +60,7 @@ _demo = """
       "expand": true
     }
   },
-  "Label.": {
+  "Label-Copy": {
     "pack": {
       "anchor": "center",
       "expand": true

@@ -18,7 +18,7 @@ using JSON files you can make layouts with ease.
       "expand": true
     }
   },
-  "Label.": {
+  "Label-Copy": {
     "pack": {
       "anchor": "center",
       "expand": true

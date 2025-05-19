@@ -28,4 +28,4 @@ and
 
 ### Manual Installation
 
-If you don't have any of these, then just download a zip acrhive directly from GitHub.
+If you don't have any of these, then just download a ZIP archive directly from GitHub.

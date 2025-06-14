@@ -1,16 +1,7 @@
 {
   "Label-Title": {
-    "text": "Picea Notepad ",
-    "text_color": "#37c837",
-    "image": {
-      "light_image": {
-        "fp": "../res/icon/icon.png"
-      },
-      "dark_image": {
-        "fp": "../res/icon/icon.png"
-      },
-      "size": [32, 32]
-    },
+    "text": "Picea Notepad",
+    "text_color": ["#121212", "#37c837"],
     "compound": "right",
     "font": {
       "size": 36,
@@ -22,8 +13,8 @@
       "pady": [32, 24]
     }
   },
-  "Label-Start": {
-    "text": "Start",
+  "Label-File": {
+    "text": "File",
     "font": {
       "size": 24
     },

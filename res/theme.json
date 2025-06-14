@@ -28,7 +28,7 @@
   },
   "CTkEntry": {
     "corner_radius": 6,
-    "border_width": 2,
+    "border_width": 0,
     "fg_color": ["#F9F9FA", "#343638"],
     "border_color": "black",
     "text_color":["#121212", "#e0e0e0"],
@@ -138,17 +138,17 @@
   "CTkFont": {
     "macOS": {
       "family": "SF Display",
-      "size": 12,
+      "size": 13,
       "weight": "normal"
     },
     "Windows": {
-      "family": "Segoe UI",
-      "size": 12,
+      "family": "Roboto",
+      "size": 13,
       "weight": "normal"
     },
     "Linux": {
       "family": "Roboto",
-      "size": 12,
+      "size": 13,
       "weight": "normal"
     }
   }

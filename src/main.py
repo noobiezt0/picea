@@ -78,14 +78,11 @@ class App(CTk):
             layout.load(self.layouts['welcome'])
             layout.widgets['Button-New'].configure(command=self.create_tab)
             layout.widgets['Button-Open'].configure(command=self.open_file)
-            CTkButton(self.tabs[name]['frame'], anchor='nw')
-            CTkButton(self.tabs[name]['frame'], anchor='nw')
-            CTkButton(self.tabs[name]['frame'], anchor='nw')
             self.tabs[name]['frame'].pack(fill='both', expand=True)
         else:
             self.tabs[name]['frame'] = TextboxFrame(self.tabview.tab(name), fg_color=('white', 'black'))
-            self.tabs[name]['frame'].textbox.configure(font=CTkFont('Cascadia Mono'))
-            self.tabs[name]['frame'].linenums.configure(font=CTkFont('Cascadia Mono'))
+            self.tabs[name]['frame'].textbox.configure(font=CTkFont('Roboto Mono'))
+            self.tabs[name]['frame'].linenums.configure(font=CTkFont('Roboto Mono'))
 
         self.tabs[name]['frame'].pack(fill='both', expand=True)
         self.tabview.set(name)
@@ -99,7 +96,7 @@ class App(CTk):
         fp = askopenfilename()
         if not (fp in self.tabs):
             try:
-                with open(fp) as file:
+                with open(fp, encoding='UTF-8') as file:
                     self.create_tab(None, name=fp)
                     self.tabs[fp]['frame'].open_file(file)
             except (FileNotFoundError, TypeError):

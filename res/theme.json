@@ -137,7 +137,7 @@
   },
   "CTkFont": {
     "macOS": {
-      "family": "SF Display",
+      "family": "Roboto",
       "size": 13,
       "weight": "normal"
     },

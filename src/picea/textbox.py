@@ -71,9 +71,9 @@ class TextboxFrame(CTkFrame):
     def open_file(self, file: TextIO):
         self.textbox.insert('1.0', file.read())
         self.statusbar.menu['Encoding'].configure(text=file.encoding)
+        self._get_lnend(file)
 
         self._update_linenums()
-        self._update_position()
 
     def _get_lnend(self, file: TextIO):
         with open(file.name, 'rb') as file:
